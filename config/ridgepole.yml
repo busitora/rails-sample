@@ -1,0 +1,7 @@
+#adapter: mysql2
+#encoding: utf8mb4
+#database: rails_sample_development
+#username: root
+#password: password
+
+# ridgepole設定で必要になるかも知れないのでコメントとして残す
