@@ -1,6 +1,11 @@
 h2
   tbody
+    .mb-3
+    table.table.table-hover
+      thead.thead-default
     td
       th= @task.name
-p
-  | Find me in app/views/tasks/show.html.erb
+      |
+      th= link_to '編集', '#', class: 'btn btn-success'
+      th= link_to '削除', '#', class: 'btn btn-danger'
+      th= link_to '戻る', root_path, class: 'btn btn-primary'
