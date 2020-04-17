@@ -15,7 +15,7 @@ table.table.table-hover
     tr
       th= Task.human_attribute_name(:created_at)
       td= @task.created_at
-    / TODO: ステータス、優先順位、期限、ラベルを追加する
+    / TODO: ステータス、優先順位、期限、ラベルを追加しlink_to 修正
 
 
 = link_to '編集', '#', class: 'btn btn-success'

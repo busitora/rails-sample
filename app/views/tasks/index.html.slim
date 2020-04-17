@@ -12,7 +12,7 @@ table.table.table-hover
         td= link_to task.name, task
         td= task.description
         td= task.created_at
-        / TODO: ステータス、優先順位、期限、ラベルを追加する
+        / TODO: ステータス、優先順位、期限、ラベルを追加し link_to 修正
         td
           = link_to '編集', '#', class: 'btn btn-primary mr-3'
           = link_to '削除', '#', method: :delete, remote: true, data: {confirm: "タスク「#{task.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger delete'
