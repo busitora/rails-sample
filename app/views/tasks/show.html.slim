@@ -1,0 +1,23 @@
+h2 タスクの詳細
+.m-3
+.nav.justify-content-end
+table.table.table-hover
+  tbody
+    tr
+      th= Task.human_attribute_name(:id)
+      td= @task.id
+    tr
+      th= Task.human_attribute_name(:name)
+      td= @task.name
+    tr
+      th= Task.human_attribute_name(:description)
+      td= @task.description
+    tr
+      th= Task.human_attribute_name(:created_at)
+      td= @task.created_at
+    / TODO: ステータス、優先順位、期限、ラベルを追加しlink_to 修正
+
+
+= link_to '編集', '#', class: 'btn btn-success'
+= link_to '削除', '#', class: 'btn btn-danger'
+= link_to '戻る', root_path, class: 'btn btn-primary'
