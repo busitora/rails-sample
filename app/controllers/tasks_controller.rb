@@ -33,10 +33,11 @@ class TasksController < ApplicationController
       flash.now[:danger] = "タスクの更新に失敗しました。"
       render :edit
     end
-
   end
 
   def destroy
+    @task.destroy! # 例外にするべきか悩んだ
+    redirect_to tasks_path, danger: 'タスクを削除しました'
   end
 
   private
