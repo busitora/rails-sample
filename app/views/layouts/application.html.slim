@@ -11,4 +11,5 @@ html
     .app-title.navbar.navbar-expand-md.navbar-light.bg-light
       .navbar-brand Task_UUUM
     .container
-      = yield
+    = render 'shared/flash_message'
+    = yield

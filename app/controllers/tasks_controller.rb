@@ -1,10 +1,11 @@
 class TasksController < ApplicationController
+  before_action :set_task, only: [:show, :edit, :update, :destroy]
+
   def index
     @tasks = Task.all
   end
 
   def show
-    @task = Task.find(params[:id])
   end
 
   def new
@@ -12,9 +13,9 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task.create(task_params)
+    @task = Task.new(task_params)
     if @task.save
-      redirect_to tasks_path, notice: "タスク「#{@task.name}」を登録しました。"
+      redirect_to tasks_path, success: "タスク「#{@task.name}」を登録しました。"
     else
       flash.now[:danger] = "タスクの登録に失敗しました。"
       render :new
@@ -23,7 +24,19 @@ class TasksController < ApplicationController
   end
 
   def edit
+  end
 
+  def update
+    if @task.update(task_params)
+      redirect_to task_path(@task), success: "タスク「#{@task.name}」を更新しました。"
+    else
+      flash.now[:danger] = "タスクの更新に失敗しました。"
+      render :edit
+    end
+
+  end
+
+  def destroy
   end
 
   private
@@ -31,5 +44,9 @@ class TasksController < ApplicationController
   def task_params
     params.require(:task).permit(:name, :description)
     # TODO: パラメーターは後で追加する
+  end
+
+  def set_task
+    @task = Task.find(params[:id])
   end
 end
