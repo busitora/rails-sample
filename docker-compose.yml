@@ -7,6 +7,13 @@ services:
       MYSQL_ROOT_PASSWORD: password
     volumes:
       - ./tmp/docker/mysql:/var/lib/mysql:delegated
+  test-db:
+    image: mysql:5.7
+    environment:
+      MYSQL_USER: test_root
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - ./tmp/docker/mysql:/var/lib/mysql:delegated
 
   web:
     build: .
