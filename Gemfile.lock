@@ -278,6 +278,7 @@ DEPENDENCIES
   ridgepole
   rspec-rails
   sass-rails (>= 6)
+  selenium-webdriver
   slim-rails
   spring
   spring-commands-rspec
