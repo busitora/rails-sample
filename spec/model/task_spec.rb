@@ -36,10 +36,12 @@ RSpec.describe Task, type: :model do
   end
 
   describe 'タスクの表示順テスト' do
-    it 'タスクが作成日時順で表示されること' do
-      Task.create(id: 1, name: '一番のタスク', created_at: Time.current)
-      Task.create(id: 2, name: '二番のタスク', created_at: Time.current.prev_day(10))
-      expect(Task.recent.map(&:id)).to eq [1,2]
+    let(:task) { create(:task, created_at: Time.current) }
+    let(:other_task) { create(:task, created_at: Time.current.prev_day(10)) }
+    fit 'タスクが作成日時順で表示されること' do
+      task
+      other_task
+      expect(Task.recent.map(&:id)).to eq [1, 2]
     end
   end
 end
