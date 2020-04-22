@@ -9,7 +9,8 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
     .app-title.navbar.navbar-expand-md.navbar-light.bg-light
-      .navbar-brand Task_UUUM
+      .navbar-brand
+        = link_to 'Task_UUUM', root_path
     .container
     = render 'shared/flash_message'
     = yield
