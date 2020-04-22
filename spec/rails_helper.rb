@@ -66,4 +66,9 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   # factoryを省略してcreate出来るための設定
 
+  # テスト実行前に前回テストのscreenshotを削除する
+  config.before(:all) do
+    FileUtils.rm_rf(Dir[Rails.root.join('tmp', 'screenshots', '*')], secure: true)
+  end
+
 end
