@@ -17,7 +17,7 @@
             td= @task.description
           tr
             th= Task.human_attribute_name(:created_at)
-            td= @task.created_at
+            td= l @task.created_at, format: :long
       / TODO: ステータス、優先順位、期限、ラベルを追加しlink_to 修正
       = link_to '編集', edit_task_path, class: 'btn btn-success'
       = link_to '削除', @task, method: :delete, remote: true, data: {confirm: "タスク「#{@task.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger delete'

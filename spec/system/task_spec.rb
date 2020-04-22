@@ -62,4 +62,18 @@ RSpec.describe "Task", type: :system do
     end
   end
   # TODO: ユーザーに紐付けるとなると大幅にテストを変更する必要がある。。
+
+  describe 'タスクの表示順テスト' do
+    let(:task) { create(:task) }
+    let(:task_10days_ago) { create(:task, :task_10days_ago) }
+    xit 'タスクが作成日時順で表示されること' do
+      task
+      task_10days_ago
+      visit root_path
+      task_created = find_by_id("task-created-#{task.id}")
+      expect(task_created[0]).to have_content I18n.l task.created_at, format: :long
+      expect(task_created[1]).to have_content I18n.l task.created_at, format: :long
+      # TODO: システムでIDを識別できていないので後日対応する
+    end
+  end
 end
