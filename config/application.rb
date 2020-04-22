@@ -26,6 +26,23 @@ module RailsSample
 
     config.generators.template_engine = :slim #slimに変更
 
+    config.time_zone = "Tokyo"
+    config.active_record.default_timezone = :utc
+    # Rails(Activerecord)がDBへのRead・Writeを行う際タイムゾーン
+
+    config.generators do |g|
+      g.assets false
+      g.helper false
+      g.test_framework :rspec,
+                       view_specs: false,
+                       helper_specs: false,
+                       routing_specs: false,
+                       controller_specs: false,
+                       model_specs: true,
+                       request_specs: false,
+                       fixtures: true
+    end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
