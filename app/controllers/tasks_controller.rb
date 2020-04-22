@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tasks = Task.all
+    @tasks = Task.all.recent
   end
 
   def show
@@ -43,7 +43,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :description)
+    params.require(:task).permit(:name, :description, :limit)
     # TODO: パラメーターは後で追加する
   end
 
