@@ -45,7 +45,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :description, :limit)
+    params.require(:task).permit(:name, :description, :limit, :status)
     # TODO: パラメーターは後で追加する
   end
 
