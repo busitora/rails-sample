@@ -19,6 +19,8 @@ services:
       - db
     environment:
       - "SELENIUM_DRIVER_URL=http://selenium_chrome:4444/wd/hub"
+    tty: true
+    stdin_open: true
   selenium_chrome:
     image: selenium/standalone-chrome-debug
     logging:
