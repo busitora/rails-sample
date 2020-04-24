@@ -87,4 +87,16 @@ RSpec.describe "Task", type: :system do
     end
   end
 
+  describe 'タスクの検索テスト' do
+    xit '名前で検索ができること' do
+    end
+    xit 'ステータスで検索ができること' do
+    end
+    xit '優先順位で検索ができること' do
+    end
+    xit 'ラベルで検索ができること' do
+    end
+    # TODO: ログイン機能実装してタスクと紐付いたらまとめて書く
+  end
+
 end
