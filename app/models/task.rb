@@ -3,5 +3,5 @@ class Task < ApplicationRecord
   # ユニーク制約は一応貼っておく
   # TODO: DB上でユニークが設定出来てるか不明瞭
   scope :recent, -> { order(created_at: :desc) }
-  enum status: {waiting: 0, working: 1, done: 2}
+  enum status: %i[waiting working done]
 end
