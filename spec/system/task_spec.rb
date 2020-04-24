@@ -85,14 +85,15 @@ RSpec.describe "Task", type: :system do
       expect(page).to have_content I18n.t(task_10days_ago.limit, format: :long)
       # TODO: I18n対応しつつ、IDを識別する方法模索中。。また、順番に
     end
+
+    xit '優先順位でソートができること' do
+    end
   end
 
   describe 'タスクの検索テスト' do
     xit '名前で検索ができること' do
     end
     xit 'ステータスで検索ができること' do
-    end
-    xit '優先順位で検索ができること' do
     end
     xit 'ラベルで検索ができること' do
     end
