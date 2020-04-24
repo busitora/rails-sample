@@ -12,6 +12,7 @@
             th= Task.human_attribute_name(:description)
             th= sort_link(@q, :created_at)
             th= sort_link(@q, :limit)
+            th= sort_link(@q, :priority)
             th= Task.human_attribute_name(:status)
         tbody
           - @tasks.each do |task|
@@ -20,8 +21,11 @@
               td= task.description.truncate(30)
               td id="task-created_at" = (l task.created_at, format: :long)
               td= (l task.limit, format: :long)
+              td= task.priority_i18n
               td= task.status_i18n
               / TODO: ステータス、優先順位、期限、ラベルを追加し link_to 修正
               td
                 = link_to '編集', edit_task_path(task), class: 'btn btn-success'
                 = link_to '削除', task, method: :delete, remote: true, data: {confirm: "タスク「#{task.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger delete'
+    .col-md-12
+      = paginate @tasks
