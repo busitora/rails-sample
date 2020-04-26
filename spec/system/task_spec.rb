@@ -75,5 +75,29 @@ RSpec.describe "Task", type: :system do
       expect(task_created[1]).to have_content I18n.l task.created_at, format: :long
       # TODO: システムでIDを識別できていないので後日対応する
     end
+
+    xit 'タスクが終了期限でソートできること' do
+      task_10days_ago
+      visit tasks_path
+      # rootにすると、もしrootを変えた時にメンテナンスがが億劫
+      click_link '終了期限'
+      expect(page).to have_content I18n.t(task.limit, format: :long)
+      expect(page).to have_content I18n.t(task_10days_ago.limit, format: :long)
+      # TODO: I18n対応しつつ、IDを識別する方法模索中。。また、順番に
+    end
+
+    xit '優先順位でソートができること' do
+    end
   end
+
+  describe 'タスクの検索テスト' do
+    xit '名前で検索ができること' do
+    end
+    xit 'ステータスで検索ができること' do
+    end
+    xit 'ラベルで検索ができること' do
+    end
+    # TODO: ログイン機能実装してタスクと紐付いたらまとめて書く
+  end
+
 end

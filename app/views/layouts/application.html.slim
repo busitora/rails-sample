@@ -10,7 +10,9 @@ html
   body
     .app-title.navbar.navbar-expand-md.navbar-light.bg-light
       .navbar-brand
-        = link_to 'Task_UUUM', root_path
+        = link_to 'Task_UUUM  ', root_path
+        = link_to '新しいタスクを登録する', new_task_path
+        / TODO: header作成時にapplicaitonから移動させる、一時的に書いた
     .container
     = render 'shared/flash_message'
     = yield
