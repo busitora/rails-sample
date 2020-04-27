@@ -1,0 +1,16 @@
+.container.mb-5.pt-2
+  .row
+  .login-box
+    .login-logo
+      h1 ログイン
+    .card
+      .card-body.login-card-body
+        = form_with scope: :session, url: login_path, local: true do |f|
+          .form-group
+            = f.label User.human_attribute_name(:email)
+            = f.text_field :email, class: 'form-control'
+          .form-group
+            = f.label User.human_attribute_name(:password)
+            = f.password_field :password, class: 'form-control'
+          .actions
+            = f.submit 'ログインする', class: 'btn btn-primary'
