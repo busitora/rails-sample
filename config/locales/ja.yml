@@ -30,6 +30,10 @@ ja:
         small: "小"
         medium: "中"
         large: "大"
+    user:
+      role:
+        normal: "一般"
+        admin: "管理者"
   date:
     abbr_day_names:
       - 日
