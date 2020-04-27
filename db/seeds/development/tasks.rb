@@ -8,6 +8,6 @@ require 'faker'
       status: rand(0..2),
       priority: rand(0..3),
       user_id: 1,
-  # TODO: 優先順位とラベルとユーザー
+  # TODO: 優先順位とラベル
   )
 end

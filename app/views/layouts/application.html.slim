@@ -11,8 +11,12 @@ html
     .app-title.navbar.navbar-expand-md.navbar-light.bg-light
       .navbar-brand
         = link_to 'Task_UUUM  ', root_path
-        = link_to '新しいタスクを登録する', new_task_path
-        / TODO: header作成時にapplicaitonから移動させる、一時的に書いた
+        - if current_user
+          = link_to '新しいタスクを登録する  ', new_task_path
+          = link_to 'ログアウト', logout_path, method: :delete
+        - else
+          = link_to 'ログインする', login_path
+    / TODO: 今回はapplicationに書いたが、本来はheaderを作りapplicationはスリムにする
     .container
     = render 'shared/flash_message'
     = yield

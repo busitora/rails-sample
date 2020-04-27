@@ -10,7 +10,7 @@
           tr
             th= Task.human_attribute_name(:name)
             th= Task.human_attribute_name(:description)
-            th= sort_link(@q, :created_at)
+            th= sort_link(@q, :created_at, default_order: :desc)
             th= sort_link(@q, :limit)
             th= sort_link(@q, :priority)
             th= Task.human_attribute_name(:status)
