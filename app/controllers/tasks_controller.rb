@@ -2,9 +2,8 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    @q = Task.all.ransack(params[:q])
-    @tasks = @q.result(distinct: true)
-    # @tasks = Task.all.recent
+    @q = current_user.tasks.page(params[:page]).per(10).ransack(params[:q])
+    @tasks = @q.result
   end
 
   def show
@@ -15,7 +14,8 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.build(task_params)
+    # buildはnewのalias、紐付けた時はbuildにするのが慣習らしい
     if @task.save
       redirect_to tasks_path, success: "タスク「#{@task.name}」を登録しました。"
     else
@@ -45,11 +45,11 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :description, :limit, :status)
+    params.require(:task).permit(:name, :description, :limit, :status,:priority)
     # TODO: パラメーターは後で追加する
   end
 
   def set_task
-    @task = Task.find(params[:id])
+    @task = current_user.tasks.find(params[:id])
   end
 end

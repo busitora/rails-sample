@@ -16,14 +16,28 @@ ja:
         description: 詳しい説明
         limit: 終了期限
         status: ステータス
+        priority: 優先順位
         created_at: 登録日時
         updated_at: 更新日時
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
   enums:
     task:
       status:
         waiting: "未着手"
         working: "着手中"
         done: "完了"
+      priority:
+        not_yet: "未設定"
+        small: "小"
+        medium: "中"
+        large: "大"
+    user:
+      role:
+        normal: "一般"
+        admin: "管理者"
   date:
     abbr_day_names:
       - 日
