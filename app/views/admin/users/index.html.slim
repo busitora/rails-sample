@@ -1,0 +1,22 @@
+.container.mb-5.pt-2
+  h1 ユーザー一覧
+  = link_to 'ユーザー作成', new_admin_user_path
+  .row
+    .col-md-12.mb-3
+      / = render 'admin/users/user_search_form', search_url: admin_users_path, q: @q
+  .row
+    .col-md-12
+      table.table.table-striped
+        thead
+          tr
+            th scope="col" = User.human_attribute_name(:id)
+            th scope="col" = User.human_attribute_name(:name)
+            th scope="col" = "タスク件数"
+            / #TODO: i18n化
+            th scope="col" = User.human_attribute_name(:email)
+            th scope="col" = User.human_attribute_name(:created_at)
+            th scope="col" = User.human_attribute_name(:role)
+        tbody
+          = render @users
+    .col-md-12.mb-3
+      = paginate @users

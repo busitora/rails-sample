@@ -14,6 +14,8 @@ html
         - if current_user
           = link_to '新しいタスクを登録する  ', new_task_path
           = link_to 'ログアウト', logout_path, method: :delete
+          - if current_user.admin?
+            = link_to 'ユーザー一覧画面へ  ', admin_users_path
         - else
           = link_to 'ログインする', login_path
     / TODO: 今回はapplicationに書いたが、本来はheaderを作りapplicationはスリムにする

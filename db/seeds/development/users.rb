@@ -6,7 +6,7 @@ User.create!(
     email: 'busitora@gmail.com',
     password: 'busitora',
     password_confirmation: 'busitora',
-    # role: 1
+    role: 1
 )
 
 User.create!(
@@ -15,4 +15,14 @@ User.create!(
     email: Rails.application.credentials.email[:uuum],
     password: Rails.application.credentials.password[:uuum],
     password_confirmation: Rails.application.credentials.password[:uuum],
+    role: 1
     )
+
+User.create!(
+    id: 3,
+    name: 'ゲスト',
+    email: 'guest@gmail.com',
+    password: 'guest',
+    password_confirmation: 'guest',
+    role: 0
+)
