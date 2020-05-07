@@ -4,7 +4,6 @@ class Admin::UsersController < ApplicationController
 
   def index
     @q = User.page(params[:page]).ransack(params[:q])
-    # TODO: N+1未対応
     @users = @q.result
   end
 

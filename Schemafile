@@ -19,3 +19,17 @@ create_table :users, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :c
   t.datetime "created_at", precision: 6, null: false
   t.datetime "updated_at", precision: 6, null: false
 end
+
+create_table :labels, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  t.string "name", null: false, unique: true
+  t.datetime "created_at", precision: 6, null: false
+  t.datetime "updated_at", precision: 6, null: false
+end
+
+create_table :task_labels, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  t.bigint "label_id", null: false
+  t.bigint "task_id", null: false
+  t.datetime "created_at", precision: 6, null: false
+  t.datetime "updated_at", precision: 6, null: false
+  t.index ["task_id", "label_id"], name: "index_tasks_on_label_id", unique: true
+end
