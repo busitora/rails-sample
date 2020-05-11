@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   def index
     @q = current_user.tasks.page(params[:page]).per(10).ransack(params[:q])
     @tasks = @q.result
-    @tasks = @tasks.joins(:labels).where(labels: { id: params[:label_id] })
+    @tasks = @tasks.joins(:labels).where(labels: { id: params[:label_id] }) if params[:label_id].present?
   end
 
   def show
