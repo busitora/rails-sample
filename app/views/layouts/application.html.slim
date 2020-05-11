@@ -18,7 +18,7 @@ html
             = render 'shared/admin'
           = current_user.name
         - else
-          = link_to 'ログインする', login_path
+          = link_to 'ログインする', login_path, class: 'btn btn-info'
     / TODO: 今回はapplicationに書いたが、本来はheaderを作りapplicationはスリムにする
     .container
     = render 'shared/flash_message'

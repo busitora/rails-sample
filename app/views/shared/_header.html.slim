@@ -1,5 +1,6 @@
-= link_to 'タスクを登録する  ', new_task_path
-= link_to ' ログアウト  ', logout_path, method: :delete
+= link_to 'タスクを作成する  ', new_task_path, class: 'btn btn-info'
+= link_to 'ラベルを作成する', new_label_path, class: 'btn btn-info'
+= link_to ' ログアウト  ', logout_path, method: :delete, class: 'btn btn-danger delete'
 
 / = current_user.name
 / .dropdown-menu.dropdown-menu-right

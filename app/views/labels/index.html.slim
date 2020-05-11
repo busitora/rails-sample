@@ -1,0 +1,21 @@
+div.row
+  div.col-lg-8.offset-2
+    h2 ラベル一覧
+    div.text-left
+      = link_to 'ラベルを作成する', new_label_path, class: 'btn btn-info', id: 'new-label-button'
+    table.table.table-hover
+      thead.thead-light
+        tr
+          th = Label.human_attribute_name(:name)
+          th width='10%'
+          th width='10%'
+      - if @labels.exists?
+        tbody
+          - @labels.each do |label|
+            tr
+              td = label.name
+              td = link_to 'ラベルを編集する', edit_label_path(label.id), class: 'btn btn-success'
+              td = link_to 'ラベルを削除する', label_path(label.id), method: :delete, data: {confirm: "ラベル#{label.name}を削除しますか？"}, class: 'btn btn-danger delete'
+      - else
+        div = '該当するラベルはありません'
+    = paginate @labels
