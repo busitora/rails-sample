@@ -15,6 +15,9 @@
   .form-group
     = f.label Task.human_attribute_name(:priority)
     = f.select :priority, Task.priorities_i18n.invert, {}, class: 'form-control'
+  .form-group
+    = f.collection_check_boxes(:label_ids, Label.all, :id, :name)
+    / #ここでラベル全件取るのは絶対によくないと思うが、一旦実装
   = f.submit nil, class: 'btn btn-primary'
   = link_to 'タスク一覧へ戻る', root_path, class: 'btn btn-success'
   - unless task.new_record?

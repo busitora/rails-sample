@@ -8,4 +8,7 @@ class Task < ApplicationRecord
   scope :recent, -> { order(created_at: :desc) }
   enum status: %i[waiting working done]
   enum priority: %i[not_yet small medium large]
+
+  #TODO: tasks/indexのjoinをscopeに切り出す
+
 end

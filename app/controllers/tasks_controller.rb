@@ -4,6 +4,7 @@ class TasksController < ApplicationController
   def index
     @q = current_user.tasks.page(params[:page]).per(10).ransack(params[:q])
     @tasks = @q.result
+    @tasks = @tasks.joins(:labels).where(labels: { id: params[:label_id] })
   end
 
   def show
@@ -45,7 +46,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :description, :limit, :status, :priority)
+    params.require(:task).permit(:name, :description, :limit, :status, :priority, {label_ids: []})
     # TODO: パラメーターは後で追加する
   end
 
