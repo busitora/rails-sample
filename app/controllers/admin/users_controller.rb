@@ -35,7 +35,6 @@ class Admin::UsersController < ApplicationController
     else
       flash.now[:danger] = 'ユーザーを更新できませんでした'
       render :edit
-      # TODO: 管理者のroleが0になった時の処理を考える
     end
   end
 

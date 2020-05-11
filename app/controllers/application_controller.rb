@@ -3,14 +3,14 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   add_flash_types :success, :info, :warning, :danger, :notice
 
-  unless Rails.env.development?
+  if Rails.env.production?
     rescue_from Exception, with: :render_500
     rescue_from ActiveRecord::RecordNotFound, with: :render_404
     rescue_from ActionController::RoutingError, with: :render_404
   end
 
   def routing_error
-    raise ActionController::RoutingError, params[:path]
+    # raise ActionController::RoutingError, params[:path]
     # routing error が起きたら、render_404に飛ばす
   end
 
@@ -26,6 +26,10 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def logged_in?
+    !!current_user
+  end
 
   def current_user
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
