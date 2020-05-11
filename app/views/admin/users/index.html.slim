@@ -1,9 +1,9 @@
 .container.mb-5.pt-2
   h1 ユーザー一覧
-  = link_to 'ユーザー作成', new_admin_user_path
+  = link_to 'ユーザー作成', new_admin_user_path, class: 'btn btn-info'
   .row
     .col-md-12.mb-3
-      / = render 'admin/users/user_search_form', search_url: admin_users_path, q: @q
+  / = render 'admin/users/user_search_form', search_url: admin_users_path, q: @q
   .row
     .col-md-12
       table.table.table-striped

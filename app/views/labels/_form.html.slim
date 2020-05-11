@@ -1,0 +1,7 @@
+= form_with model: label, local: true do |f|
+  = render 'shared/error_messages', object: f.object
+  .form-group
+    = f.label Label.human_attribute_name(:name)
+    = f.text_field :name, class: 'form-control', id: 'label_name'
+  = f.submit nil, class: 'btn btn-primary'
+  = link_to 'ラベル一覧へ戻る', labels_path, class: 'btn btn-success'
