@@ -1,0 +1,26 @@
+= link_to 'タスクを作成する  ', new_task_path, class: 'btn btn-info'
+= link_to 'ラベルを作成する', new_label_path, class: 'btn btn-info'
+= link_to ' ログアウト  ', logout_path, method: :delete, class: 'btn btn-danger delete'
+
+/ = current_user.name
+/ .dropdown-menu.dropdown-menu-right
+  / .dropdown-item= current_user.name
+  .dropdown-divider
+  / = link_to t('.profile'), profiles_path, class: 'dropdown-item'
+  / = link_to t('.logout'), logout_path, method: :delete, class: 'dropdown-item'
+
+/ header#header
+/   ul.navbar-nav.ml-auto.main-nav.align-items-center
+/     li.nav-item
+/       = link_to 'タスクを登録する', new_task_path
+/     li.nav-item
+/       = current_user.name
+/     li.nav-item
+/       = link_to 'ログアウト', logout_path, method: :delete
+/         / li.nav-item.dropdown.dropdown-slide
+/           / a#header-profile.nav-link aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#"
+/             / = image_tag current_user.decorate.image_url, size: '25x25', class: 'rounded-circle mr15'
+/             / = current_user.name
+/           / .dropdown-menu.dropdown-menu-right
+/           /   = link_to 'マイページ', mypages_path, class: 'dropdown-item'
+            = link_to 'ログアウト', logout_path, method: :delete, class: 'dropdown-item'

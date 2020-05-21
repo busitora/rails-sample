@@ -10,7 +10,8 @@ Rails.application.configure do
   config.eager_load = false
 
   # Show full error reports.
-  config.consider_all_requests_local = true
+  config.consider_all_requests_local = false
+  # falseにするとエラーページ見れる
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
@@ -62,5 +63,15 @@ Rails.application.configure do
 
   BetterErrors::Middleware.allow_ip! "0.0.0.0/0"
   config.web_console.whitelisted_ips = "172.18.0.1"
+
+  config.after_initialize do
+    # Bullet.enable = true # Bulletを有効化
+    # Bullet.alert = true # JavaScriptのポップアップアラートを有効化
+    # Bullet.bullet_logger = true # Rails.root/log/bullet.logに出力
+    # Bullet.console = true # ブラウザのconsole.logに出力
+    # Bullet.rails_logger = true # Railsのログに結果を出力
+    # Bullet.add_footer = true # ページの左下に結果を表示
+    #TODO: 追加したがまだ実装できてない
+  end
 
 end
