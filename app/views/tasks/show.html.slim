@@ -26,7 +26,9 @@
             th= @task.priority_i18n
           tr
             th= Task.human_attribute_name(:label)
-            th= @task.labels.pluck(:name).join(',')
+            th
+              span.badge.badge-info
+                = @task.labels.pluck(:name).join(',')
       / TODO: タスクに紐付いたラベルの名前を取り出して表示してるけどもっといい書き方あるはず
       = link_to '編集', edit_task_path, class: 'btn btn-success'
       = link_to '削除', @task, method: :delete, remote: true, data: {confirm: "タスク「#{@task.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger delete'

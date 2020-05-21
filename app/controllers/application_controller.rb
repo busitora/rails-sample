@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     rescue_from ActiveRecord::RecordNotFound, with: :render_404
     rescue_from ActionController::RoutingError, with: :render_404
   end
-  
+
   def render_404
     render 'error/404', status: :not_found, layout: false, content_type: 'text/html'
   end
